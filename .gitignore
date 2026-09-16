@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+venv/
+ragenv/
+testenv/
+.venv/
+data/vectorstore/
+data/documents/*/
+data/cache/*/
+data/app.db
+*.egg-info/
+.DS_Store

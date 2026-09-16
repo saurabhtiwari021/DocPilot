@@ -1,0 +1,33 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  # Only starts when you explicitly ask for it, since the default vector
+  # store backend is FAISS (no database required):
+  #   docker compose --profile pgvector up
+  # Then set VECTOR_STORE_BACKEND=pgvector and
+  # PGVECTOR_CONNECTION_STRING=postgresql+psycopg2://raguser:ragpassword@postgres:5432/ragdb
+  # in your .env before starting.
+  postgres:
+    # Pinned (not :latest) so builds/deploys are reproducible.
+    image: ankane/pgvector:v0.5.1
+    profiles: ["pgvector"]
+    environment:
+      POSTGRES_USER: raguser
+      POSTGRES_PASSWORD: ragpassword
+      POSTGRES_DB: ragdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:

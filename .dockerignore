@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+venv/
+ragenv/
+testenv/
+.venv/
+.git/
+.gitignore
+data/vectorstore/
+data/documents/*/
+data/app.db
+.env
+*.md

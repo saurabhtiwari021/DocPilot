@@ -1,0 +1,39 @@
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.31.0
+python-multipart==0.0.12
+
+# Config / env
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+
+# LangChain core + integrations
+langchain==0.3.21
+langchain-community==0.3.20
+langchain-core==0.3.45
+langchain-google-genai==2.0.11
+langchain-text-splitters==0.3.7
+httpx==0.27.2
+
+# Vector stores
+faiss-cpu==1.8.0.post1
+pgvector==0.3.5
+psycopg2-binary==2.9.9
+
+# File storage (AWS S3 backend)
+boto3==1.35.36
+
+# Document loaders
+pypdf==5.0.1
+docx2txt==0.8
+
+# Conversation memory persistence
+SQLAlchemy==2.0.35
+
+# Auth
+PyJWT==2.9.0
+bcrypt==4.2.0
+
+# Rate limiting (protects /auth, /upload, /chat)
+slowapi==0.1.9
